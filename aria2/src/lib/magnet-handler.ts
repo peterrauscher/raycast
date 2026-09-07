@@ -110,7 +110,7 @@ export async function currentMagnetHandler(): Promise<string | undefined> {
   try {
     const { stdout } = await execFileAsync("/usr/bin/swift", [
       "-e",
-      'import CoreServices; let v = LSCopyDefaultHandlerForURLScheme("magnet" as CFString)?.takeRetainedValue() as String?; print(v ?? "")',
+      'import Foundation; import CoreServices; let v = LSCopyDefaultHandlerForURLScheme("magnet" as CFString)?.takeRetainedValue() as String?; print(v ?? "")',
     ]);
     const id = stdout.trim();
     return id || undefined;
@@ -171,7 +171,7 @@ export async function installMagnetHandler(config: {
 
   await execFileAsync("/usr/bin/swift", [
     "-e",
-    `import CoreServices; LSSetDefaultHandlerForURLScheme("magnet" as CFString, "${HANDLER_BUNDLE_ID}" as CFString)`,
+    `import Foundation; import CoreServices; LSSetDefaultHandlerForURLScheme("magnet" as CFString, "${HANDLER_BUNDLE_ID}" as CFString)`,
   ]);
 }
 
