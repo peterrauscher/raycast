@@ -4,7 +4,7 @@
   "title": "Aria2",
   "description": "Add and manage torrents in aria2c from magnet links or torrent files.",
   "icon": "icon.png",
-  "author": "peterrauscher",
+  "author": "urbneng",
   "platforms": ["macOS"],
   "categories": ["Applications", "Developer Tools"],
   "keywords": ["aria2", "torrent", "magnet", "bittorrent", "download"],
